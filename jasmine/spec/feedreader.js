@@ -41,6 +41,11 @@ $(function () {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('should have a Name defined and Name is not empty', () => {
+            const testFeeds = allFeeds.filter(el => !el.name);
+
+            expect(testFeeds.length).toBe(0);
+        });
     });
 
 
