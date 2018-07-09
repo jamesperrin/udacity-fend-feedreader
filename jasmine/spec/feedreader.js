@@ -32,8 +32,14 @@ $(function () {
          * and that the URL is not empty.
          */
         it('should have an URL defined and URL is not empty', () => {
-            const testFeeds = allFeeds.filter(el => !el.url);
+            // Ensuring we have feeds to test
+            expect(allFeeds).toBeDefined();
+            expect(allFeeds.length).not.toBe(0);
 
+            // Test criteria
+            const testFeeds = allFeeds.filter(el => !el.url || !el.url.trim());
+
+            // Test Expections
             expect(testFeeds.length).toBe(0);
         });
 
@@ -42,8 +48,14 @@ $(function () {
          * and that the name is not empty.
          */
         it('should have a Name defined and Name is not empty', () => {
-            const testFeeds = allFeeds.filter(el => !el.name);
+            // Ensuring we have feeds to test
+            expect(allFeeds).toBeDefined();
+            expect(allFeeds.length).not.toBe(0);
 
+            // Test criteria
+            const testFeeds = allFeeds.filter(el => !el.name || !el.name.trim());
+
+            // Test Expections
             expect(testFeeds.length).toBe(0);
         });
     });
