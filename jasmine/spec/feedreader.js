@@ -25,9 +25,8 @@ $(function () {
          */
         it('are defined', function () {
             expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds.length).toBeGreaterThan(0);
         });
-
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a URL defined
@@ -36,7 +35,7 @@ $(function () {
         it('should have an URL defined and URL is not empty', () => {
             // Ensuring we have feeds to test
             expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds.length).toBeGreaterThan(0);
 
             // Test criteria
             const testFeeds = allFeeds.filter(el => !el.url || !el.url.trim());
@@ -52,7 +51,7 @@ $(function () {
         it('should have a Name defined and Name is not empty', () => {
             // Ensuring we have feeds to test
             expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds.length).toBeGreaterThan(0);
 
             // Test criteria
             const testFeeds = allFeeds.filter(el => !el.name || !el.name.trim());
@@ -61,6 +60,7 @@ $(function () {
             expect(testFeeds.length).toBe(0);
         });
     });
+
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', () => {
@@ -93,6 +93,7 @@ $(function () {
         });
     });
 
+
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', () => {
         beforeEach((done) => {
@@ -116,6 +117,7 @@ $(function () {
             done();
         });
     });
+
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', () => {
@@ -153,6 +155,7 @@ $(function () {
                 done();
             });
         });
+
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
