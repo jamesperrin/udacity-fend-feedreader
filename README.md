@@ -20,9 +20,9 @@ Udactiy Front-End Web Developer Nanodegree
 * The Student is responsible for writing a number of Jasmine tests against a pre-existing application..
 
 ## Getting Started
-1. [Download](https://github.com/jamesperrin/udacity-fend-feedreader/archive/master.zip) the files to your computer.
-2. [Clone](https://github.com/jamesperrin/udacity-fend-feedreader.git) the repository on your computer.
-    * > `git clone https://github.com/jamesperrin/udacity-fend-feedreader.git`
+1. [Download](https://github.com/jamesperrin/udacity-fend-project-feedreader/archive/master.zip) the files to your computer.
+2. [Clone](https://github.com/jamesperrin/udacity-fend-project-feedreader.git) the repository on your computer.
+    * > `git clone https://github.com/jamesperrin/udacity-fend-project-feedreader.git`
 
 ### Using Feed Reader
 1. In the project folder, open the [index.html](./index.html) file with a browser (Chrome, Firefox or Edge).
