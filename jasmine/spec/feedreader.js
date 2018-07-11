@@ -1,3 +1,5 @@
+"use strict";
+
 /* feedreader.js
  *
  * This is the spec file that Jasmine will read and contains
@@ -113,9 +115,55 @@ $(function () {
 
     /* TODO: Write a new test suite named "New Feed Selection" */
     describe('New Feed Selection', () => {
+        const feed1 = {};
+        const feed2 = {};
+
+        beforeEach((done) => {
+            // Retrieve the 1st feed content
+            loadFeed(0, () => {
+                // Retrieves the last feed content
+                let lastFeed = document.querySelector('div.feed > .entry-link:last-child');
+
+                // Populate test feed container
+                feed1.url = lastFeed.href;
+                feed1.name = lastFeed.children[0].innerText;
+
+                // DEBUG CODE
+                // console.log(`feed1.url: ${feed1.url}`);
+                // console.log(`feed1.name: ${feed1.name}`);
+
+                // Retrieves the 2nd feed content
+                loadFeed(1, () => {
+                    // Retrieve the last feed content
+                    let lastFeed = document.querySelector('div.feed > .entry-link:last-child');
+
+                    // Populate test feed container
+                    feed2.url = lastFeed.href;
+                    feed2.name = lastFeed.children[0].innerText;
+
+                    // DEBUG CODE
+                    // console.log(`feed2.url: ${feed2.url}`);
+                    // console.log(`feed2.name: ${feed2.name}`);
+                });
+
+                done();
+            });
+        });
+
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
+         * @see
+         * https: //discussions.udacity.com/t/new-feed-selection-question/797040
+         * https: //jasmine.github.io/api/2.6/matchers.html
          */
+        it('should actually change content', (done) => {
+            // Test criteria and Expections
+            expect(feed1.url).not.toBe(feed2.url);
+            expect(feed1.name).not.toBe(feed2.name);
+
+            // Call asynchronous done() function
+            done();
+        });
     });
 }());
