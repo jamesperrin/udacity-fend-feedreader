@@ -83,8 +83,11 @@ $(function () {
             const menu = document.querySelector('.menu-icon-link');
             const body = document.querySelector('body');
 
+            // Click event to display menu
             menu.click();
             expect(body.classList.contains('menu-hidden')).toBe(false);
+
+            // Click event to hide menu
             menu.click();
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
@@ -106,7 +109,8 @@ $(function () {
             const entries = document.querySelectorAll('.entry');
 
             // Test criteria and Expections
-            expect(entries.length).not.toBe(0);
+            expect(entries).toBeDefined();
+            expect(entries.length).toBeGreaterThan(0);
 
             // Call asynchronous done() function
             done();
