@@ -107,7 +107,7 @@ $(function () {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         it('should have at least a single entry', (done) => {
-            const entries = document.querySelectorAll('.entry');
+            const entries = document.querySelectorAll('.feed .entry');
 
             // Test criteria and Expections
             expect(entries).toBeDefined();
@@ -150,9 +150,11 @@ $(function () {
                     // DEBUG CODE
                     // console.log(`feed2.url: ${feed2.url}`);
                     // console.log(`feed2.name: ${feed2.name}`);
-                });
 
-                done();
+                    // done() needs to be a Callback of second loadFeed()
+                    // Or, feed2 will be undefined
+                    done();
+                });
             });
         });
 
@@ -165,6 +167,11 @@ $(function () {
          * https: //jasmine.github.io/api/2.6/matchers.html
          */
         it('should actually change content', (done) => {
+
+            // Ensures our test feeds are defined
+            expect(feed1.url).toBeDefined();
+            expect(feed2.url).toBeDefined();
+
             // Test criteria and Expections
             expect(feed1.url).not.toBe(feed2.url);
             expect(feed1.name).not.toBe(feed2.name);
