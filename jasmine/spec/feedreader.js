@@ -71,6 +71,11 @@ $(function () {
          */
         it('should be hidden by default', () => {
             const body = document.querySelector('body');
+
+            // Ensures our element selection(s) are defined
+            expect(body).toBeDefined();
+
+            // Test Expections
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
 
@@ -82,6 +87,10 @@ $(function () {
         it('should be visible when clicked, then hidden when clicked again', () => {
             const menu = document.querySelector('.menu-icon-link');
             const body = document.querySelector('body');
+
+            // Ensures our element selection(s) are defined
+            expect(menu).toBeDefined();
+            expect(body).toBeDefined();
 
             // Click event to display menu
             menu.click();
